@@ -32,15 +32,33 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    //MVP
-    //
-    implementation "net.grandcentrix.thirtyinch:thirtyinch:1.0.1'"
-    implementation "net.grandcentrix.thirtyinch:thirtyinch-rx2:1.0.1'"
+    //FIND LIBRARY MVP UTIL
+
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+
+    //For offline-mode
+    //implementation 'io.requery:requery:1.6.1'
+    //implementation 'io.requery:requery-android:1.6.1' // for android
+    //annotationProcessor 'io.requery:requery-processor:1.6.1'
+
+    //Utilidades para Android para guardar objetos en un paquete sin ningún tipo de repetitivo
+    implementation 'com.evernote:android-state:1.4.1'
+    // Java only project
+    annotationProcessor 'com.evernote:android-state-processor:1.4.1'
+
+    //For loaing images
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+
+    //View message
+    //implementation 'com.github.GrenderG:Toasty:1.5.2'
+
+    implementation 'com.airbnb.android:lottie:5.2.0'
 }
