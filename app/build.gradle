@@ -61,4 +61,10 @@ dependencies {
     //implementation 'com.github.GrenderG:Toasty:1.5.2'
 
     implementation 'com.airbnb.android:lottie:5.2.0'
+
+    //Paser Json
+    implementation("com.squareup.moshi:moshi:1.13.0")
+
+    //implementation 'io.reactivex.rxjava3:rxjava:3.0.0-SNAPSHOT'
+
 }
