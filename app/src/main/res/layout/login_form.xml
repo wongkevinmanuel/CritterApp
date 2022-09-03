@@ -29,12 +29,13 @@
             android:minWidth="250dp"
             app:cardElevation="@dimen/spacing_normal">
 
+            <!-- android:layout_marginTod="1dp"-->
             <LinearLayout
                 android:id="@+id/loginForm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTod="@dimen/spacing_normal"
+
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/spacing_normal"
