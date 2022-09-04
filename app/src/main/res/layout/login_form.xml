@@ -12,36 +12,38 @@
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/spacing_s_large"
-            android:minHeight="350dp"
             android:minWidth="250dp"
+            android:minHeight="350dp"
             app:cardElevation="@dimen/spacing_normal">
 
             <!-- android:layout_marginTod="1dp"-->
             <LinearLayout
                 android:id="@+id/loginForm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-
+                android:layout_width="272dp"
+                android:layout_height="486dp"
                 android:layout_gravity="center"
+
+                android:gravity="center"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:paddingEnd="@dimen/spacing_xs_large"
                 android:paddingStart="@dimen/spacing_xs_large"
-                android:paddingTop="@dimen/spacing_normal">
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingEnd="@dimen/spacing_xs_large"
+                android:paddingBottom="@dimen/spacing_normal">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/username"
@@ -55,7 +57,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:maxLines="1"/>
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <CheckBox
@@ -63,11 +65,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/spacing_xs_large"
+                    android:enabled="true"
                     android:text="@string/access_token"
                     android:visibility="gone"
-                    tools:visibility="visible"
-                    android:enabled="true">
-                </CheckBox>
+                    tools:visibility="visible"></CheckBox>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password"
@@ -84,8 +85,7 @@
                         android:layout_height="wrap_content"
                         android:imeOptions="actionSend"
                         android:inputType="textPassword"
-                        android:maxLines="1">
-                    </com.google.android.material.textfield.TextInputEditText>
+                        android:maxLines="1"></com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <FrameLayout
@@ -98,17 +98,18 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/fab_margin"
-                        android:src="@drawable/ic_launcher_background"
+                        android:contentDescription="---"
+                        android:src="@drawable/ic_send"
                         android:tint="@color/white"
-                        app:fabSize="normal"
-                        android:contentDescription="---"/>
+                        app:fabSize="normal" />
+
                     <ProgressBar
                         android:id="@+id/progress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="@dimen/fab_margin"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
                 </FrameLayout>
 
             </LinearLayout>
