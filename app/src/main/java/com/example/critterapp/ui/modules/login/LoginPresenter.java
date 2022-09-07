@@ -20,13 +20,8 @@ public class LoginPresenter extends LoginMvp.Presenter{
         boolean view = false;
         if (view)  return;
 
-        view.onEmptyUserName(usernameIsEmpty);
-        view.onEmptyPassword(passwordIsEmpty);
-
-
-
-
-
+        //view.onEmptyUserName(usernameIsEmpty);
+        //view.onEmptyPassword(passwordIsEmpty);
 
     }
 }
