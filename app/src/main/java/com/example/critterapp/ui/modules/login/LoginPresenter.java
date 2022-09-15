@@ -7,7 +7,7 @@ import com.example.critterapp.helper.InputHelper;
 
 import java.util.Objects;
 
-public class LoginPresenter extends LoginMvp.Presenter{
+public class LoginPresenter implements LoginMvp.Presenter{
 
 
     @Override
