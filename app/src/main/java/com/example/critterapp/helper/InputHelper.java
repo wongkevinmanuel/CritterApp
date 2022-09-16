@@ -34,5 +34,9 @@ public class InputHelper {
         return textInputLayout != null ? textInputLayout.getEditText().toString() : "";
     }
 
+    @Nullable
+    public static toString(@Nullable Object object){
+        return !isEmpty(object) ? object.toString() : "";
+    }
 
 }

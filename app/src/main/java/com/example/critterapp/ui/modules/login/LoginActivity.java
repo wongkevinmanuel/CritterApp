@@ -8,6 +8,7 @@ import com.example.critterapp.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginMvp.View {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
