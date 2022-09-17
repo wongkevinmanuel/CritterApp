@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.example.critterapp.helper.InputHelper;
+import com.example.critterapp.ui.modules.login.LoginMvp;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -14,7 +15,7 @@ import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements LoginMvp.View {
 
     @BindView(R.id.usernameEditText)
     TextInputEditText usernameEditText;
@@ -38,10 +39,24 @@ public class MainActivity extends AppCompatActivity{
 
     private void doLogin(){
         if(progress.getVisibility() == View.GONE){
-            String username= InputHelper.toString();
-            String password = InputHelper.toString();
+            String username= InputHelper.toString(usernameEditText);
+            String password = InputHelper.toString(passwordEditText);
             getPresentes().login(username, password);
         }
     }
 
+    @Override
+    public void onEmptyUserName(boolean isEmpty) {
+
+    }
+
+    @Override
+    public void onEmptyPassword(boolean isEmpty) {
+
+    }
+
+    @Override
+    public void onSuccessFullyLoggedIn(boolean extraLogin) {
+
+    }
 }

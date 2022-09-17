@@ -4,8 +4,10 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
@@ -34,9 +36,12 @@ public class InputHelper {
         return textInputLayout != null ? textInputLayout.getEditText().toString() : "";
     }
 
-    @Nullable
-    public static toString(@Nullable Object object){
-        return !isEmpty(object) ? object.toString() : "";
+    public static String toString(@NonNull EditText editText){
+        return editText.getText().toString();
     }
+
+    //public static String toString(@Nullable String object){
+     //   return ;
+   // }
 
 }
