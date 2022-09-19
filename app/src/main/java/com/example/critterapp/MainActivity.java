@@ -7,6 +7,7 @@ import android.widget.ProgressBar;
 
 import com.example.critterapp.helper.InputHelper;
 import com.example.critterapp.ui.modules.login.LoginMvp;
+import com.example.critterapp.ui.modules.login.MainPresenter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -14,7 +15,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
+import nucleus.factory.RequiresPresenter;
 
+@RequiresPresenter(MainPresenter.class)
 public class MainActivity extends AppCompatActivity implements LoginMvp.View {
 
     @BindView(R.id.usernameEditText)
