@@ -7,6 +7,7 @@ import nucleus.presenter.RxPresenter;
 public class MainPresenter extends RxPresenter<MainActivity> {
     private static final String NAME_KEY = MainPresenter.class.getName() + "#name";
 
+    public void login(String user, String password){
 
-
+    }
 }

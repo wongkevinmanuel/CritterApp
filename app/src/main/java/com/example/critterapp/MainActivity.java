@@ -17,17 +17,10 @@ import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import nucleus.factory.RequiresPresenter;
 
-@RequiresPresenter(MainPresenter.class)
-public class MainActivity extends AppCompatActivity implements LoginMvp.View {
 
-    @BindView(R.id.usernameEditText)
-    TextInputEditText usernameEditText;
-    @BindView(R.id.passwordEditText)
-    TextInputEditText  passwordEditText;
-    @BindView(R.id.login)
-    FloatingActionButton login;
-    @BindView(R.id.progress)
-    ProgressBar progress;
+public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,30 +29,4 @@ public class MainActivity extends AppCompatActivity implements LoginMvp.View {
 
     }
 
-    @OnClick (R.id.login) public void onClick(){
-        doLogin();
-    }
-
-    private void doLogin(){
-        if(progress.getVisibility() == View.GONE){
-            String username= InputHelper.toString(usernameEditText);
-            String password = InputHelper.toString(passwordEditText);
-            getPresentes().login(username, password);
-        }
-    }
-
-    @Override
-    public void onEmptyUserName(boolean isEmpty) {
-
-    }
-
-    @Override
-    public void onEmptyPassword(boolean isEmpty) {
-
-    }
-
-    @Override
-    public void onSuccessFullyLoggedIn(boolean extraLogin) {
-
-    }
 }

@@ -7,7 +7,9 @@ import com.example.critterapp.helper.InputHelper;
 
 import java.util.Objects;
 
-public class LoginPresenter implements LoginMvp.Presenter{
+import nucleus.presenter.RxPresenter;
+
+public class LoginPresenter extends RxPresenter<LoginActivity> implements LoginMvp.Presenter{
 
 
     @Override
@@ -17,10 +19,11 @@ public class LoginPresenter implements LoginMvp.Presenter{
         boolean usernameIsEmpty = InputHelper.isEmpty(username);
         boolean passwordIsEmpty = InputHelper.isEmpty(password);
 
-        boolean view = false;
-        if (view)  return;
-
-        //view.onEmptyUserName(usernameIsEmpty);
+        if (getView() == null)  return;
+        if (usernameIsEmpty) {
+            getView().onEmptyUserName(false);
+            //onEmptyUserName(usernameIsEmpty);
+        }
         //view.onEmptyPassword(passwordIsEmpty);
 
     }
