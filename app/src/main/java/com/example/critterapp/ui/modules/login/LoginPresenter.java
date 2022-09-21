@@ -5,11 +5,8 @@ import androidx.annotation.Nullable;
 
 import com.example.critterapp.helper.InputHelper;
 
-import java.util.Objects;
 
-import nucleus.presenter.RxPresenter;
-
-public class LoginPresenter extends RxPresenter<LoginActivity> implements LoginMvp.Presenter{
+public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
 
 
     @Override
@@ -19,9 +16,10 @@ public class LoginPresenter extends RxPresenter<LoginActivity> implements LoginM
         boolean usernameIsEmpty = InputHelper.isEmpty(username);
         boolean passwordIsEmpty = InputHelper.isEmpty(password);
 
-        if (getView() == null)  return;
+        //if (getView() == null)  return;
         if (usernameIsEmpty) {
-            getView().onEmptyUserName(false);
+            //getView().onEmptyUserName(false);
+
             //onEmptyUserName(usernameIsEmpty);
         }
         //view.onEmptyPassword(passwordIsEmpty);

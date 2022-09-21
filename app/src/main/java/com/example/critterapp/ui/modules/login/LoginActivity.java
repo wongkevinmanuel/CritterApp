@@ -13,11 +13,8 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import nucleus.factory.RequiresPresenter;
-import nucleus.view.NucleusActivity;
 
-@RequiresPresenter(LoginPresenter.class)
-public class LoginActivity extends NucleusActivity<LoginPresenter> implements LoginMvp.View { //AppCompatActivity implements LoginMvp.View {
+public class LoginActivity extends AppCompatActivity implements LoginMvp.View { //AppCompatActivity implements LoginMvp.View {
     @BindView(R.id.usernameEditText)
     TextInputEditText usernameEditText;
     @BindView(R.id.passwordEditText)
@@ -57,7 +54,7 @@ public class LoginActivity extends NucleusActivity<LoginPresenter> implements Lo
             String username= InputHelper.toString(usernameEditText);
             String password = InputHelper.toString(passwordEditText);
 
-            getPresenter().login(username,password, false);
+            //login(username,password, false);
         }
     }
 }

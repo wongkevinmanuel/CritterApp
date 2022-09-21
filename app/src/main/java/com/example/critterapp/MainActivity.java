@@ -15,8 +15,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
-import nucleus.factory.RequiresPresenter;
-
 
 public class MainActivity extends AppCompatActivity {
 
