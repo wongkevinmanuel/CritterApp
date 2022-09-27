@@ -8,6 +8,9 @@ import com.example.critterapp.helper.InputHelper;
 
 public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
 
+    LoginPresenter(){
+        RestProvider.clearHttpClient();
+    }
 
     @Override
     public void login(@NonNull String username, @NonNull String password

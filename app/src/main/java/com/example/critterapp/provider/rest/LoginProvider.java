@@ -46,6 +46,7 @@ public class LoginProvider {
 
     @NonNull
     public static LoginRestService getLoginRestServive(){
-        return provideRetrofit("","").create(LoginRestService.class);
+       //return provideRetrofit("","").create(LoginRestService.class);
+        return null;
     }
 }
