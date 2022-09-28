@@ -18,6 +18,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 public class LoginProvider {
 
+    private static OkHttpClient okHttpClient;
     private final static Gson gson = new GsonBuilder()
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .excludeFieldsWithModifiers(Modifier.FINAL, Modifier.TRANSIENT, Modifier.STATIC)
@@ -26,12 +27,18 @@ public class LoginProvider {
             .create();
 
     private static OkHttpClient provideOkHttpClient(@Nullable String authToken, @Nullable String otp){
-        OkHttpClient.Builder client = new OkHttpClient.Builder();
-        if(BuildConfig.DEBUG){
-            client.addInterceptor(null);
+        if(okHttpClient == null){
+            OkHttpClient.Builder client = new OkHttpClient.Builder();
+            if(BuildConfig.DEBUG){
+                client.addInterceptor(new HttpLoggingInterceptor()
+                        .setLevel(HttpLogginInterceptor.Level.BODY));
+            }
+            client.addInterceptor(new AuthenticatorInterceptor());
+            client.addInterceptor(new PaginationInterceptor());
+            client.addInterceptor(new ContentTypeInterceptor());
+            okHttpClient = client.build();
         }
-        client.addInterceptor(null);
-        return client.build();
+        return okHttpClient;
     }
 
     private Retrofit provideRetrofit(@Nullable String authToken
