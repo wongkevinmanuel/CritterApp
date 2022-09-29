@@ -27,33 +27,40 @@ public class LoginProvider {
             .create();
 
     private static OkHttpClient provideOkHttpClient(@Nullable String authToken, @Nullable String otp){
-        if(okHttpClient == null){
-            OkHttpClient.Builder client = new OkHttpClient.Builder();
-            if(BuildConfig.DEBUG){
+        OkHttpClient.Builder client = new OkHttpClient.Builder();
+        if(BuildConfig.DEBUG){
                 client.addInterceptor(new HttpLoggingInterceptor()
                         .setLevel(HttpLogginInterceptor.Level.BODY));
-            }
-            client.addInterceptor(new AuthenticatorInterceptor());
-            client.addInterceptor(new PaginationInterceptor());
-            client.addInterceptor(new ContentTypeInterceptor());
-            okHttpClient = client.build();
         }
-        return okHttpClient;
+        client.addInterceptor(new AuthenticatorInterceptor());
+        return client.build();
     }
 
-    private Retrofit provideRetrofit(@Nullable String authToken
+    /*
+    private static Retrofit provideRetrofit(@Nullable String authToken
                                     ,@Nullable String otp){
         return new Retrofit.Builder()
                 .baseUrl(BuildConfig.REST_URL)
                 .client(provideOkHttpClient("",""))
-                .addConverterFactory(null)
+                .addConverterFactory(null) //Covertir response a gson
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
+    }*/
+
+    public static LoginRestService getLoginRestService(){
+        return new Retrofit.Builder()
+                .baseUrl("https://github.com/login/auth")
+                .client(provideOkHttpClient(null,null))
+                .addConverterFactory(null)//Git hub Response Converter
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(LoginRestService.class);
     }
 
     @NonNull
-    public static LoginRestService getLoginRestServive(){
-       //return provideRetrofit("","").create(LoginRestService.class);
-        return null;
+    public static LoginRestService getLoginRestServive(@NonNull String authToken, @Nullable String otp){
+       return provideRetrofit(authToken,otp).create(LoginRestService.class);
     }
+
+
 }
