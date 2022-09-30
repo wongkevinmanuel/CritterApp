@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity implements LoginMvp.View { 
         if(progress.getVisibility() == View.GONE){
             String username= InputHelper.toString(usernameEditText);
             String password = InputHelper.toString(passwordEditText);
-
             //login(username,password, false);
         }
     }

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.critterapp.helper.InputHelper;
+import com.example.critterapp.provider.rest.LoginProvider;
 
 
 public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
@@ -25,7 +26,9 @@ public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
 
             //onEmptyUserName(usernameIsEmpty);
         }
-        //view.onEmptyPassword(passwordIsEmpty);
+        if((!usernameIsEmpty && !passwordIsEmpty)){
+           makeRestCall(LoginProvider.getLoginRestService("","").login(null) , acce);
+        }
 
     }
 }

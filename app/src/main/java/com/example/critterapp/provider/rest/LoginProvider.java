@@ -36,7 +36,6 @@ public class LoginProvider {
         return client.build();
     }
 
-    /*
     private static Retrofit provideRetrofit(@Nullable String authToken
                                     ,@Nullable String otp){
         return new Retrofit.Builder()
@@ -45,7 +44,7 @@ public class LoginProvider {
                 .addConverterFactory(null) //Covertir response a gson
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
-    }*/
+    }
 
     public static LoginRestService getLoginRestService(){
         return new Retrofit.Builder()
@@ -58,7 +57,7 @@ public class LoginProvider {
     }
 
     @NonNull
-    public static LoginRestService getLoginRestServive(@NonNull String authToken, @Nullable String otp){
+    public static LoginRestService getLoginRestService(@NonNull String authToken, @Nullable String otp){
        return provideRetrofit(authToken,otp).create(LoginRestService.class);
     }
 
