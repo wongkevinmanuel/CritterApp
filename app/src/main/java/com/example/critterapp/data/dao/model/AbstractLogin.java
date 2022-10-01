@@ -4,9 +4,14 @@ import android.os.Parcelable;
 
 import androidx.annotation.Nullable;
 
-import java.util.Observable;
+import io.reactivex.Observable;
+import io.requery.Column;
+import io.requery.Entity;
+import io.requery.Key;
+import lombk.NoArgsConstructor;
 
-@Entity @NoArgsConstructor
+@Entity
+@NoArgsConstructor
 public abstract class  AbstractLogin implements Parcelable {
     @Key long id;
     @Column String login;
