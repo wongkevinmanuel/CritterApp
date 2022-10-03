@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.critterapp.R;
 import com.example.critterapp.helper.InputHelper;
+import com.example.critterapp.provider.rest.LoginProvider;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -54,6 +55,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMvp.View { 
             String username= InputHelper.toString(usernameEditText);
             String password = InputHelper.toString(passwordEditText);
             //login(username,password, false);
+
         }
     }
 }

@@ -21,8 +21,5 @@ public abstract class  AbstractLogin implements Parcelable {
     @Nullable
     private boolean isLoggedIn;
 
-    public Observable<Login> udate(){
-        return Rxhelper;
-    }
-
+    //Observable with rxjava
 }
