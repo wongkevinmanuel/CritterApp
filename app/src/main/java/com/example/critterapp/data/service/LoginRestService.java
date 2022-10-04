@@ -1,6 +1,8 @@
 package com.example.critterapp.data.service;
 
 import androidx.annotation.NonNull;
+
+import com.example.critterapp.data.dao.AuthModel;
 import com.example.critterapp.data.dao.model.AbstractLogin;
 
 import io.reactivex.Observable;
@@ -10,8 +12,14 @@ import retrofit2.http.POST;
 
 public interface LoginRestService {
     @GET("user")
-    Observable<Login> loginAccessToken();
+    Observable<AbstractLogin> loginAccessToken();
+    //Login
 
     @POST("authorizations")
     Observable<AccessTokenModel> login(@NonNull @Body AuthModel authModel);
+    //AccessTokenModel
+
+    //@POST("authorizations")
+    //Observable<Login> login(@NonNull @Body AuthModel authModel);
+    //AccessTokenModel
 }

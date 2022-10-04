@@ -29,10 +29,10 @@ public class LoginProvider {
     private static OkHttpClient provideOkHttpClient(@Nullable String authToken, @Nullable String otp){
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         if(BuildConfig.DEBUG){
-                client.addInterceptor(new HttpLoggingInterceptor()
-                        .setLevel(HttpLogginInterceptor.Level.BODY));
+                //client.addInterceptor(new HttpLoggingInterceptor()
+                //        .setLevel(HttpLogginInterceptor.Level.BODY));
         }
-        client.addInterceptor(new AuthenticatorInterceptor());
+        //client.addInterceptor(new AuthenticatorInterceptor());
         return client.build();
     }
 

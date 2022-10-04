@@ -3,8 +3,11 @@ package com.example.critterapp.ui.modules.login;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.critterapp.data.dao.AuthModel;
 import com.example.critterapp.helper.InputHelper;
 import com.example.critterapp.provider.rest.LoginProvider;
+
+import io.reactivex.Observable;
 
 
 public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
@@ -22,13 +25,15 @@ public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
 
         //if (getView() == null)  return;
         if (usernameIsEmpty) {
-            //getView().onEmptyUserName(false);
-
-            //onEmptyUserName(usernameIsEmpty);
+            //getView().onEmptyUserName(true);
         }
-        if((!usernameIsEmpty && !passwordIsEmpty)){
-           makeRestCall(LoginProvider.getLoginRestService("","").login(null) , acce);
+        if(passwordIsEmpty) {
+            //getView().onEmptyPassword(true);
         }
-
+        if((!usernameIsEmpty && !passwordIsEmpty)) {
+            AuthModel authModel = new AuthModel();
+            LoginProvider.getLoginRestService("", "")
+                    .login(new AuthModel());
+        }
     }
 }
