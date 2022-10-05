@@ -2,6 +2,7 @@ package com.example.critterapp.data.service;
 
 import androidx.annotation.NonNull;
 
+import com.example.critterapp.data.dao.AccessTokenModel;
 import com.example.critterapp.data.dao.AuthModel;
 import com.example.critterapp.data.dao.model.AbstractLogin;
 

@@ -13,7 +13,7 @@ import io.reactivex.Observable;
 public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
 
     LoginPresenter(){
-        RestProvider.clearHttpClient();
+        LoginProvider.clearHttpClient();
     }
 
     @Override
@@ -34,6 +34,7 @@ public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
             AuthModel authModel = new AuthModel();
             LoginProvider.getLoginRestService("", "")
                     .login(new AuthModel());
+
         }
     }
 }
