@@ -47,6 +47,6 @@ public class AccessTokenModel implements Parcelable {
         public AccessTokenModel[] newArray(int size) {
             return new AccessTokenModel[size];
         }
-    }
+    };
 
 }

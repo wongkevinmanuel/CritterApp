@@ -3,19 +3,25 @@ package com.example.critterapp.ui.modules.login;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.critterapp.data.dao.AccessTokenModel;
 import com.example.critterapp.data.dao.AuthModel;
 import com.example.critterapp.helper.InputHelper;
 import com.example.critterapp.provider.rest.LoginProvider;
 
 import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
 
     LoginPresenter(){
-        LoginProvider.clearHttpClient();
+        //LoginProvider.clearHttpClient();
     }
 
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
     @Override
     public void login(@NonNull String username, @NonNull String password
                         , @Nullable boolean isBasicAuth) {
@@ -32,9 +38,20 @@ public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
         }
         if((!usernameIsEmpty && !passwordIsEmpty)) {
             AuthModel authModel = new AuthModel();
+            compositeDisposable.add(
             LoginProvider.getLoginRestService("", "")
-                    .login(new AuthModel());
-
+                                .login(new AuthModel()).subscribeOn(Schedulers.io())
+                                      .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<AccessTokenModel>() {
+                        @Override
+                        public void accept(AccessTokenModel accessTokenModel) throws Exception {
+                            displayData();
+                        }
+                    }))
+            ;
         }
+    }
+
+    private void displayData(){
+
     }
 }

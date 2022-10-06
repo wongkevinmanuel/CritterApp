@@ -15,6 +15,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginProvider {
 
@@ -41,16 +42,17 @@ public class LoginProvider {
         return new Retrofit.Builder()
                 .baseUrl(BuildConfig.REST_URL)
                 .client(provideOkHttpClient("",""))
-                .addConverterFactory(null) //Covertir response a gson
+                .addConverterFactory(GsonConverterFactory.create()) //Covertir response a gson
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
+        //examp
     }
 
     public static LoginRestService getLoginRestService(){
         return new Retrofit.Builder()
                 .baseUrl("https://github.com/login/auth")
                 .client(provideOkHttpClient(null,null))
-                .addConverterFactory(null)//Git hub Response Converter
+                .addConverterFactory(GsonConverterFactory.create())//Git hub Response Converter
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
                 .create(LoginRestService.class);
