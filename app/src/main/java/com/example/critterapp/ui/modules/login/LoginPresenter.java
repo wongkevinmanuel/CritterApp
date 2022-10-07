@@ -44,14 +44,21 @@ public class LoginPresenter extends LoginActivity implements LoginMvp.Presenter{
                                       .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<AccessTokenModel>() {
                         @Override
                         public void accept(AccessTokenModel accessTokenModel) throws Exception {
-                            displayData();
+                            verificarToken(accessTokenModel);
                         }
                     }))
             ;
         }
     }
 
-    private void displayData(){
+    private void verificarToken(AccessTokenModel accessTokenModel){
+        if(!accessTokenModel.getToken().isEmpty())
+            return;
+    }
 
+    @Override
+    protected void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
     }
 }
