@@ -73,12 +73,12 @@ dependencies {
     //Paser Json
     implementation("com.squareup.moshi:moshi:1.13.0")
 
-    //implementation 'io.reactivex.rxjava3:rxjava:3.0.0-SNAPSHOT'
-
     //Room orm
     implementation("androidx.room:room-runtime:2.2.5")
     annotationProcessor("androidx.room:room-compiler:2.2.5")
     // add below dependency for using lifecycle extensions for room.
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.2.0")
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }

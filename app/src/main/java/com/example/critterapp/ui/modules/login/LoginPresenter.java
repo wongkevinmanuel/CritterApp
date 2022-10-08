@@ -8,8 +8,8 @@ import com.example.critterapp.data.dao.AuthModel;
 import com.example.critterapp.helper.InputHelper;
 import com.example.critterapp.provider.rest.LoginProvider;
 
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
