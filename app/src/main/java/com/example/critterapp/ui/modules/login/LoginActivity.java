@@ -9,13 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.critterapp.R;
 import com.example.critterapp.helper.InputHelper;
 import com.example.critterapp.provider.rest.LoginProvider;
+import com.example.critterapp.ui.base.BaseActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements LoginMvp.View { //AppCompatActivity implements LoginMvp.View {
+// extends AppCompactActivity
+public class LoginActivity extends BaseActivity<LoginMvp.View, LoginPresenter> implements LoginMvp.View { //AppCompatActivity implements LoginMvp.View {
     @BindView(R.id.usernameEditText)
     TextInputEditText usernameEditText;
     @BindView(R.id.passwordEditText)
